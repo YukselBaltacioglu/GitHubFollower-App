@@ -17,6 +17,8 @@
 		944926FB2B472B970013C32F /* GithubFollowerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944926FA2B472B970013C32F /* GithubFollowerUITestsLaunchTests.swift */; };
 		944927082B47322A0013C32F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944927072B47322A0013C32F /* SearchVC.swift */; };
 		9449270A2B47326D0013C32F /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944927092B47326D0013C32F /* FavoritesListVC.swift */; };
+		94BC7D2B2B4830B400CFAF0A /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC7D2A2B4830B400CFAF0A /* GFButton.swift */; };
+		94BC7D2D2B484C9F00CFAF0A /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC7D2C2B484C9F00CFAF0A /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		944926FA2B472B970013C32F /* GithubFollowerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFollowerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		944927072B47322A0013C32F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		944927092B47326D0013C32F /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		94BC7D2A2B4830B400CFAF0A /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GFButton.swift; path = GitHubFollower/GFButton.swift; sourceTree = SOURCE_ROOT; };
+		94BC7D2C2B484C9F00CFAF0A /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GFTextField.swift; path = GitHubFollower/GFTextField.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				944926DD2B472B960013C32F /* GithubFollower.xcdatamodeld */,
 				944927072B47322A0013C32F /* SearchVC.swift */,
 				944927092B47326D0013C32F /* FavoritesListVC.swift */,
+				94BC7D2A2B4830B400CFAF0A /* GFButton.swift */,
+				94BC7D2C2B484C9F00CFAF0A /* GFTextField.swift */,
 			);
 			path = GithubFollower;
 			sourceTree = "<group>";
@@ -209,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 944926CC2B472B960013C32F /* Build configuration list for PBXProject "GithubFollower" */;
+			buildConfigurationList = 944926CC2B472B960013C32F /* Build configuration list for PBXProject "GitHubFollower" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -262,9 +268,11 @@
 			files = (
 				944927082B47322A0013C32F /* SearchVC.swift in Sources */,
 				944926DF2B472B960013C32F /* GithubFollower.xcdatamodeld in Sources */,
+				94BC7D2B2B4830B400CFAF0A /* GFButton.swift in Sources */,
 				9449270A2B47326D0013C32F /* FavoritesListVC.swift in Sources */,
 				944926D52B472B960013C32F /* AppDelegate.swift in Sources */,
 				944926D72B472B960013C32F /* SceneDelegate.swift in Sources */,
+				94BC7D2D2B484C9F00CFAF0A /* GFTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,7 +578,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		944926CC2B472B960013C32F /* Build configuration list for PBXProject "GithubFollower" */ = {
+		944926CC2B472B960013C32F /* Build configuration list for PBXProject "GitHubFollower" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				944926FC2B472B970013C32F /* Debug */,
