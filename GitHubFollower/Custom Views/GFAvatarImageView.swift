@@ -9,7 +9,7 @@ import UIKit
 
 class GFAvatarImageView: UIImageView {
     
-    let placeHolderImage = UIImage(named: "avatar-placeholder")! // since it is gonna be in our assets, we can force and unwrap it.
+    let placeHolderImage = UIImage(named: "avatar-placeholder") // since it is gonna be in our assets, we can force and unwrap it.
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +22,8 @@ class GFAvatarImageView: UIImageView {
     
     private func configure() {
         layer.cornerRadius = 10
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.white.cgColor
         clipsToBounds = true    // in order to corner radius to image into UIImageView
         image = placeHolderImage
         translatesAutoresizingMaskIntoConstraints = false
