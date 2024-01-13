@@ -44,9 +44,9 @@ class FollowerListVC: UIViewController {
         
     }
     
-    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout() {
+    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
         // simple math for sizes
-        let width = view?.bounds.width
+        let width = view.bounds.width
         let padding: CGFloat = 12
         let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
@@ -57,7 +57,7 @@ class FollowerListVC: UIViewController {
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)  // since there is also labels.
         
         
-        return UICollectionViewFlowLayout()
+        return flowLayout
     }
 
     func getFollowers() {
