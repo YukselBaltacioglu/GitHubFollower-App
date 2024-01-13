@@ -13,13 +13,13 @@ class NetworkManager {
     
     private init() {}
     
-    func getFollowers(for username: String, page: Int, completed: @escaping ([Follower]?, String?) -> Void) {
+    func getFollowers(for username: String, page: Int, completed: @escaping ([Follower]?, ErrorMessage?) -> Void) {
         let endpoint = baseUrl + "\(username)/followers?per_page=100&page=\(page)"
         
         // we wanna make sure if we are getting an actual URL
         guard let url = URL(string: endpoint) else {
         // if this doesnt return an valid url, we are just gonna tell view controllers what the error message is and then, they will represent the error with UI we created which is AlerVC
-            completed(nil, "This username created an invalid request. Please try again.")
+            completed(nil, .invalidUsermane)
             return
         }
         
@@ -27,19 +27,19 @@ class NetworkManager {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in     // data is json
             // we are gonna handle these 3 variables in this block
             if let _ = error {  // if error exists, that thing didnt even worked.
-                completed(nil, "Unable to complete your request. Please check your internet connection.")
+                completed(nil, .unableToComplete)
                 return
             }
             
             // checks if response is a HTTP response nad also wants to continue if HTTP status code is 200 which means OK
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, "Invalid response from the server. Please try again.")       // handling the bad response.
+                completed(nil, .invalidResponse)       // handling the bad response.
                 return
             }
             
             // making sure the data is not nil
             guard let data = data else {
-                completed(nil, "The data received from server is invalid. Please try again.")
+                completed(nil, .invalidData)
                 return
             }
             
@@ -51,7 +51,7 @@ class NetworkManager {
                 // it will decode the json file according to Follower class that we created.
                 completed(followers, nil)   // if all goes well
             } catch {
-                completed(nil, "The data received from server is invalid. Please try again.")
+                completed(nil, .invalidData)
             }
         }
         

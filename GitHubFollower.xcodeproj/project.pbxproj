@@ -27,6 +27,7 @@
 		94BC7D402B4935AF00CFAF0A /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC7D3F2B4935AF00CFAF0A /* Follower.swift */; };
 		94BC7D422B493B7F00CFAF0A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC7D412B493B7F00CFAF0A /* User.swift */; };
 		94BC7D452B49437C00CFAF0A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC7D442B49437C00CFAF0A /* NetworkManager.swift */; };
+		94CB3DA02B52BDFE00649F5F /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CB3D9F2B52BDFE00649F5F /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		94BC7D3F2B4935AF00CFAF0A /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Follower.swift; path = GitHubFollower/Model/Follower.swift; sourceTree = SOURCE_ROOT; };
 		94BC7D412B493B7F00CFAF0A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = GitHubFollower/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		94BC7D442B49437C00CFAF0A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = GitHubFollower/Manager/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
+		94CB3D9F2B52BDFE00649F5F /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorMessage.swift; path = GitHubFollower/Utilities/ErrorMessage.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		944926D32B472B960013C32F /* GithubFollower */ = {
 			isa = PBXGroup;
 			children = (
+				94CB3D9E2B52BDE700649F5F /* Utilities */,
 				94BC7D432B49435500CFAF0A /* Manager */,
 				94BC7D3E2B4935A400CFAF0A /* Model */,
 				94BC7D3D2B49320900CFAF0A /* Screens */,
@@ -206,6 +209,14 @@
 				94BC7D442B49437C00CFAF0A /* NetworkManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		94CB3D9E2B52BDE700649F5F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				94CB3D9F2B52BDFE00649F5F /* ErrorMessage.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 				94BC7D352B48845C00CFAF0A /* GFAlertVC.swift in Sources */,
 				944926D72B472B960013C32F /* SceneDelegate.swift in Sources */,
 				94BC7D2F2B48633700CFAF0A /* FollowerListVC.swift in Sources */,
+				94CB3DA02B52BDFE00649F5F /* ErrorMessage.swift in Sources */,
 				94BC7D452B49437C00CFAF0A /* NetworkManager.swift in Sources */,
 				94BC7D2D2B484C9F00CFAF0A /* GFTextField.swift in Sources */,
 				94BC7D332B4881F900CFAF0A /* GFBodyLabel.swift in Sources */,
