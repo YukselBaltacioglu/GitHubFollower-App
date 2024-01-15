@@ -5,11 +5,12 @@
 //  Created by Yüksel Baltacıoğlu on 6.01.2024.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
-    static let shared = NetworkManager()
-    let baseUrl = "https://api.github.com/users/"
+    static let shared = NetworkManager()    // singleton
+    let cache   = NSCache<NSString, UIImage>()
+    private let baseUrl = "https://api.github.com/users/"
     
     private init() {}
                                                                             // return a result, it is gonna have array of followers and GFError
