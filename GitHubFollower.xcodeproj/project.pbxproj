@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94172EE92B556F9D005B563D /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94172EE82B556F9D005B563D /* UIHelper.swift */; };
 		944926D52B472B960013C32F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944926D42B472B960013C32F /* AppDelegate.swift */; };
 		944926D72B472B960013C32F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944926D62B472B960013C32F /* SceneDelegate.swift */; };
 		944926DF2B472B960013C32F /* GithubFollower.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 944926DD2B472B960013C32F /* GithubFollower.xcdatamodeld */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94172EE82B556F9D005B563D /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIHelper.swift; path = GitHubFollower/Utilities/UIHelper.swift; sourceTree = SOURCE_ROOT; };
 		944926D12B472B960013C32F /* GithubFollower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944926D42B472B960013C32F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		944926D62B472B960013C32F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				94CB3D9F2B52BDFE00649F5F /* ErrorMessage.swift */,
+				94172EE82B556F9D005B563D /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				944926D72B472B960013C32F /* SceneDelegate.swift in Sources */,
 				94BC7D2F2B48633700CFAF0A /* FollowerListVC.swift in Sources */,
 				94CB3DA02B52BDFE00649F5F /* ErrorMessage.swift in Sources */,
+				94172EE92B556F9D005B563D /* UIHelper.swift in Sources */,
 				94BC7D452B49437C00CFAF0A /* NetworkManager.swift in Sources */,
 				94BC7D2D2B484C9F00CFAF0A /* GFTextField.swift in Sources */,
 				94BC7D332B4881F900CFAF0A /* GFBodyLabel.swift in Sources */,

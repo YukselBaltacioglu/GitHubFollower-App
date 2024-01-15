@@ -13,12 +13,9 @@ class FollowerListVC: UIViewController {
         case main
     }
     var username: String!
-    
     var followers: [Follower] = []
-    
     // collection view will be function in here follower listed page.
     var collectionView: UICollectionView!
-    
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
     override func viewDidLoad() {
@@ -27,9 +24,6 @@ class FollowerListVC: UIViewController {
         configureCollectionView()
         getFollowers()
         configureDataSource()
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,36 +34,21 @@ class FollowerListVC: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
     }
     
     func configureCollectionView() {            // it will fit in the boundaries of whole view, and we will customize our layout later.
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground                   // since it was static, we can access it
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
-        
     }
     
-    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
-        // simple math for sizes
-        let width = view.bounds.width
-        let padding: CGFloat = 12
-        let minimumItemSpacing: CGFloat = 10
-        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
-        let itemWidth = availableWidth / 3
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)  // since there is also labels.
-        
-        
-        return flowLayout
-    }
+    
 
-    func getFollowers() {
-        NetworkManager.shared.getFollowers(for: username, page: 1) { result in
+    func getFollowers() {   // since our newwork manager has strong refenrence to self which is FollowerListVC, this could cause memory leak.
+        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+            guard let self = self else {return} // we are basiclly unwarapping the optional self so that we are not gonna need optional sign below.
+            
             switch result {
             case .success(let followers):       // if it was succesfull, do what you gotta do with followers.
                 print(followers.count)
@@ -103,7 +82,6 @@ class FollowerListVC: UIViewController {
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
-        
     }
 
 
