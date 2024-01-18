@@ -14,6 +14,9 @@ class FollowerListVC: UIViewController {
     }
     var username: String!
     var followers: [Follower] = []
+    
+    var page = 1
+    var hasMoreFollowers = true
     // collection view will be function in here follower listed page.
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -22,7 +25,7 @@ class FollowerListVC: UIViewController {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
-        getFollowers()
+        getFollowers(username: username, page: page)
         configureDataSource()
     }
     
@@ -39,20 +42,21 @@ class FollowerListVC: UIViewController {
     func configureCollectionView() {            // it will fit in the boundaries of whole view, and we will customize our layout later.
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
+        collectionView.delegate = self      // we need to tell the delegate what to listen to
         collectionView.backgroundColor = .systemBackground                   // since it was static, we can access it
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
     
 
-    func getFollowers() {   // since our newwork manager has strong refenrence to self which is FollowerListVC, this could cause memory leak.
-        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+    func getFollowers(username: String, page: Int) {   // since our newwork manager has strong refenrence to self which is FollowerListVC, this could cause memory leak.
+        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else {return} // we are basiclly unwarapping the optional self so that we are not gonna need optional sign below.
             
             switch result {
             case .success(let followers):       // if it was succesfull, do what you gotta do with followers.
-                print(followers.count)
-                self.followers = followers
+                if followers.count < 100 {hasMoreFollowers = false}
+                self.followers.append(contentsOf: followers)
                 self.updateData()
             case .failure(let error):           // if it fails, present the error.
                 self.presentGFAlertOnMainThread(title: "Buff whaa!", message: error.rawValue, buttonTitle: "Ok")
@@ -85,4 +89,19 @@ class FollowerListVC: UIViewController {
     }
 
 
+}
+
+extension FollowerListVC: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y        // for 100 followers
+        let contentHight = scrollView.contentSize.height
+        let height = scrollView.frame.height            // height of used iphone
+            
+        if offsetY > contentHight - height {
+            guard hasMoreFollowers else {return}    // if user has more followers
+            page += 1
+            getFollowers(username: username, page: page)
+        }
+    }
 }
